@@ -1,0 +1,32 @@
+<div class="login-background">
+    <div class="login-wrapper" >
+        
+        <mat-card class="box">
+          <mat-card-header>
+            <mat-card-title>Log in</mat-card-title>
+          </mat-card-header>
+          <form [formGroup]="loginForm">
+            <mat-form-field >
+            <div class="form-group">
+              <!-- <label for="login-v1-wrong">Login</label> -->
+              <input type="text"  matInput autocomplete="off" placeholder="Username" id="login-v1-wrong" formControlName="username">
+            </div>
+          </mat-form-field>
+          <mat-form-field>
+            <div class="form-group">
+              <!-- <label for="password-v1-wrong">Password</label> -->
+              <input type="password" matInput placeholder="Password"  id="password-v1-wrong" formControlName="password">
+            </div>
+          </mat-form-field>
+          <div class="row">
+            <span class="text-danger" *ngIf="errorMessage!=''">{{errorMessage}}</span>
+          </div>
+            <div class="row">
+              <button type="button" mat-flat-button (click)="onValidate()" [disabled]="!loginForm.valid">Submit</button>  
+            </div>
+          </form>
+    
+        </mat-card>
+    
+      </div>
+      </div>

@@ -1,0 +1,40 @@
+<form [formGroup]="createForm">
+    <div class="formContainer">
+    <div class="formElement">
+        <mat-form-field appearance="outline">
+        <mat-label for="name">Name</mat-label>
+        <div class="formInput">
+        <input type="text"  matInput autocomplete="off" placeholder="Name"  formControlName="Name">
+        </div>
+    </mat-form-field>
+      </div>
+      <div class="formElement">
+        <mat-form-field appearance="outline" class="example-full-width">
+
+        <mat-label for="startDate">Start Date</mat-label>
+        <!-- <p-calendar formControlName="startDate" placeholder="Start Date" [showIcon]="true" ></p-calendar> -->
+        <input matInput [matDatepicker]="picker" formControlName="startDate">
+<mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="formElement">
+        <mat-form-field appearance="outline">
+            <mat-label for="amount">Amount</mat-label>
+
+        <div class="formInput">
+        <input type="number"  matInput autocomplete="off" placeholder="Amount"  formControlName="amount">
+        </div>
+        </mat-form-field>
+    </div>
+    <div class="formElement">
+        <mat-form-field appearance="outline">
+            <mat-label for="paidInstallments">Paid Installments</mat-label>
+
+        <div class="formInput">
+        <input type="text"  matInput autocomplete="off" placeholder="Paid Installments"  formControlName="paidInstallments">
+        </div>
+        </mat-form-field>
+    </div>
+</div>
+</form>

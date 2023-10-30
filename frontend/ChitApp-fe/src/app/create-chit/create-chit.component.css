@@ -1,0 +1,11 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+.formElement{
+    /* margin: 1rem; */
+    display: flex;
+}
+.example-full-width{
+    width: 25%;
+}
