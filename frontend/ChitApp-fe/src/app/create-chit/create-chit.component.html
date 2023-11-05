@@ -4,7 +4,7 @@
         <mat-form-field appearance="outline">
         <mat-label for="name">Name</mat-label>
         <div class="formInput">
-        <input type="text"  matInput autocomplete="off" placeholder="Name"  formControlName="Name">
+        <input type="text"  matInput autocomplete="off" placeholder="Name"  formControlName="name">
         </div>
     </mat-form-field>
       </div>
@@ -35,6 +35,9 @@
         <input type="text"  matInput autocomplete="off" placeholder="Paid Installments"  formControlName="paidInstallments">
         </div>
         </mat-form-field>
+    </div>
+    <div class="formElement">
+            <button mat-raised-button color="primary" (click)="onValidate()" [disabled]="!createForm.valid">Save</button>
     </div>
 </div>
 </form>

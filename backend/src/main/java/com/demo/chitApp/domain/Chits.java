@@ -1,9 +1,6 @@
 package com.demo.chitApp.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,8 +25,9 @@ public class Chits implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique=true)
-    private  String id;
+    private  Integer id;
 
     private  String name;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -40,6 +38,8 @@ public class Chits implements Serializable {
     private ZonedDateTime endDate;
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private ZonedDateTime settlementDate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private ZonedDateTime lastPaidDate;
 
     private Integer settlementAmount;
 
@@ -47,6 +47,7 @@ public class Chits implements Serializable {
 
     private Integer paidInstallments;
 
+    private String status;
 
 
 

@@ -1,9 +1,23 @@
-<p-table [columns]="cols" [value]="chitsList" styleClass="p-datatable-gridlines" class="ui-table" [tableStyle]="{ 'min-width': '50rem' ,'backgroundColor':'red'}">
+<!-- <div style="display: flex;">
+<p-card header="Amount Due this Month">
+    <p class="m-0">
+       {{dueAmount.amountDue}}
+    </p>
+    
+</p-card>
+<p-card header="Settlement Amount Due this Month">
+
+     <p class="m-0">
+         {{dueAmount.settlementAmountDue}}
+      </p>
+</p-card>
+</div> -->
+<p-table [columns]="cols" [value]="chitsList" styleClass="p-datatable-gridlines" class="ui-table p-datatable-sm" [tableStyle]="{ 'min-width': '50rem' ,'backgroundColor':'red'}">
     <ng-template pTemplate="caption"> Chit List </ng-template>
     <ng-template pTemplate="header" let-columns>
         <tr>
             <th *ngFor="let col of cols">
-                {{ col }}
+                {{ col.header }}
             </th>
             <th>
                 Actions
@@ -13,12 +27,13 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
             <td *ngFor="let col of columns">
-                {{ rowData[col] }}
+                {{ rowData[col.field] }}
             </td>
-            <td>
-               
-                <p-button [rounded]="true" [text]="true"> <mat-icon>edit</mat-icon></p-button>
-                <p-button icon="pi pi-trash" [rounded]="true" [text]="true" ></p-button>
+            <td style="display: flex;">
+                <button class="text-indigo-500" (click)="editChit(rowData)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <!-- <p-button [rounded]="true" > <mat-icon>edit</mat-icon></p-button> -->
 
             </td>
         </tr>

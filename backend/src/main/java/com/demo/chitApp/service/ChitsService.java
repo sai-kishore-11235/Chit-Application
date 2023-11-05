@@ -1,11 +1,16 @@
 package com.demo.chitApp.service;
 
+import com.demo.chitApp.domain.AmountDue;
 import com.demo.chitApp.domain.Chits;
 import com.demo.chitApp.repository.ChitsRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.Calendar;
 import java.util.List;
+
+
 
 @Service
 public class ChitsService {
@@ -29,5 +34,31 @@ public class ChitsService {
     }
     public List<Chits> getAll(){
         return chitsRepository.findAll();
+    }
+    public Chits update(Chits chits){
+        return chitsRepository.save(chits);
+    }
+
+    public AmountDue calculateAmountDue() {
+        double amountDue = 0.0;
+        List<Chits> chitsList = chitsRepository.findAll();
+        double settlementAmountDue = 0.0;
+        AmountDue amountDueObject = new AmountDue();
+
+        // Check if the start date is before the current month.
+        Calendar calendar = Calendar.getInstance();
+        int currentMonth = calendar.get(Calendar.MONTH);
+        for (Chits chits : chitsList) {
+
+            if (chits.getEndDate().getMonthValue() < currentMonth && chits.getLastPaidDate().getMonthValue() != currentMonth) {
+                amountDue += chits.getAmount();
+            }
+            if (chits.getSettlementDate().getMonthValue() == currentMonth) {
+                settlementAmountDue += chits.getSettlementAmount();
+            }
+        }
+        amountDueObject.setAmountDue(amountDue);
+        amountDueObject.setSettlementAmountDue(settlementAmountDue);
+        return amountDueObject;
     }
 }

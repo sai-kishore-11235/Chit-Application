@@ -1,5 +1,6 @@
 package com.demo.chitApp.restController;
 
+import com.demo.chitApp.domain.AmountDue;
 import com.demo.chitApp.domain.Chits;
 import com.demo.chitApp.service.ChitsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class ChitsRestController {
     public ResponseEntity<?> createChitEntry(@RequestBody Chits chits) {
 
         Chits savedChit = chitsService.save(chits);
-        return new ResponseEntity<>(chits, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedChit, HttpStatus.CREATED);
     }
 
     @GetMapping("/getAllChits")
@@ -35,8 +36,18 @@ public class ChitsRestController {
         return new ResponseEntity<>(allChits, HttpStatus.OK);
     }
 
+    @PutMapping("/updateChit")
+    public ResponseEntity<?> updateChitEntry(@RequestBody Chits chits) {
 
+        Chits updatedChit = chitsService.update(chits);
+        return new ResponseEntity<>(updatedChit, HttpStatus.OK);
+    }
 
+    @GetMapping("/calculate-amount-due")
+    public ResponseEntity<?> calculateAmount() {
+        AmountDue amountDue = chitsService.calculateAmountDue();
+        return new ResponseEntity<>(amountDue, HttpStatus.OK);
+    }
 }
 
 

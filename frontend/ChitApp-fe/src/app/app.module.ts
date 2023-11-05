@@ -16,6 +16,10 @@ import { CreateChitComponent } from './create-chit/create-chit.component';
 import { CalendarModule } from 'primeng/calendar';
 import { InputTextModule } from 'primeng/inputtext';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AppNavbarComponent } from './app-navbar/app-navbar.component';
+import { CardModule } from 'primeng/card';
+import { EditChitComponent } from './edit-chit/edit-chit.component';
+
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppComponent,
     LoginComponent,
     ChitListComponent,
-    CreateChitComponent
+    CreateChitComponent,
+    AppNavbarComponent,
+    EditChitComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ButtonModule,
     CalendarModule,
     InputTextModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CardModule
 
   ],
   providers: [ChitServiceService],

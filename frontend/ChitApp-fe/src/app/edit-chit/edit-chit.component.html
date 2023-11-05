@@ -1,0 +1,43 @@
+<div class="px-2 flex align-middle mx-auto justify-around py-2">
+    <div class= "w-80 rounded-md shadow-gray-950 bg-white border-2 ">
+        <p class="font-semibold text-gray-500 text-center"> 
+            Total Amount to be Paid
+        </p>
+     <p class="font-bold text-black text-center">{{totalAmount}}</p>
+    </div>
+    <div class="bg-indigo-500">
+        <p class="font-semibold text-white"> 
+             Amount Paid
+        </p>    
+        <p class="font-bold text-white">{{paidAmount}}</p>
+
+    </div>
+</div>
+<div class="px-2 bg-white justify-start align-middle">
+    <div class="flex w-40 bg-indigo-300">
+        <p>Name: </p>
+        <p class="px-10">{{chit.name}}</p>
+    </div>
+    <div class="flex align-middle">
+        <p class="block text-justify">Start Date:</p>
+        <p class="px-5">{{chit.startDate}}</p>
+    </div>
+    <div class="flex align-middle">
+        <p class="block text-justify">Paid Months:</p>
+        <div *ngFor="let item of chit.paidInstallments" class="flex">
+            <i class="fa fa-check px-2 mt-1" aria-hidden="true"></i>
+            <p class="px-2">{{item}}</p>
+
+        </div>
+    </div>
+
+</div>
+<!-- {{chit|json}} -->
+<div class="w-100">
+    <p-calendar [(ngModel)]="date" view="month" dateFormat="dd/mm/yy" [minDate]="minDate" [maxDate]="maxDate" [readonlyInput]="true"></p-calendar>
+
+</div>
+<button class="bg-indigo-400 text-white shadow-md" (click)="validateDate()">
+    Submit
+</button>
+{{date}}
