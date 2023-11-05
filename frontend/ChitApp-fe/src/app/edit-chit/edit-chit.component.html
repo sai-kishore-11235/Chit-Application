@@ -1,31 +1,34 @@
-<div class="px-2 flex align-middle mx-auto justify-around py-2">
+<div class="px-2 flex align-middle mx-auto justify-evenly py-2">
     <div class= "w-80 rounded-md shadow-gray-950 bg-white border-2 ">
         <p class="font-semibold text-gray-500 text-center"> 
             Total Amount to be Paid
         </p>
      <p class="font-bold text-black text-center">{{totalAmount}}</p>
     </div>
-    <div class="bg-indigo-500">
-        <p class="font-semibold text-white"> 
+    <div class="w-80 rounded-md shadow-gray-950 bg-white border-2">
+        <p class="font-semibold text-gray-500 text-center"> 
              Amount Paid
         </p>    
-        <p class="font-bold text-white">{{paidAmount}}</p>
+        <p class="font-bold text-black text-center">{{paidAmount}}</p>
 
     </div>
 </div>
-<div class="px-2 bg-white justify-start align-middle">
-    <div class="flex w-40 bg-indigo-300">
-        <p>Name: </p>
-        <p class="px-10">{{chit.name}}</p>
+<h1 class="block text-center font-semibold text-2xl">
+    Chit Details</h1>
+  <hr class="mt-2 p-2 w-1/2 mx-auto">
+<div class="px-2 bg-white justify-start py-2 w-7/12 mx-auto">
+    <div class="flex w-full ">
+        <p class="w-50">Name: </p>
+        <p class="w-50">{{chit.name|titlecase}}</p>
     </div>
-    <div class="flex align-middle">
-        <p class="block text-justify">Start Date:</p>
-        <p class="px-5">{{chit.startDate}}</p>
+    <div class="flex align-middle bg-gray-300">
+        <p class="w-50 text-justify">Start Date:</p>
+        <p class="w-50">{{chit.startDate}}</p>
     </div>
-    <div class="flex align-middle">
+    <div class="flex align-middle justify-between">
         <p class="block text-justify">Paid Months:</p>
         <div *ngFor="let item of chit.paidInstallments" class="flex">
-            <i class="fa fa-check px-2 mt-1" aria-hidden="true"></i>
+            <i class="fa fa-check px-2 mt-1 text-indigo-400 font-bold" aria-hidden="true"></i>
             <p class="px-2">{{item}}</p>
 
         </div>
