@@ -12,6 +12,10 @@
       </p>
 </p-card>
 </div> -->
+<div class="px-2 m-2 rounded-md bg-gray-100 w-1/2 text-center">
+    <h3 class="text-black font-bold"> Total Amount Due this month</h3>
+    <span class="font-sans font-extrabold">{{dueAmount.totalAmount}}</span>
+</div>
 <p-table [columns]="cols" [value]="chitsList" styleClass="p-datatable-gridlines" class="ui-table p-datatable-sm" [tableStyle]="{ 'min-width': '50rem' ,'backgroundColor':'red'}">
     <ng-template pTemplate="caption"> Chit List </ng-template>
     <ng-template pTemplate="header" let-columns>

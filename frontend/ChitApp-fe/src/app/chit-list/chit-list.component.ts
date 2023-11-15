@@ -18,7 +18,7 @@ export class ChitListComponent implements OnInit{
   ngOnInit() {
     
     this.getAllChits();
-    // this.getCalculatedAmount();
+    this.getCalculatedAmount();
     this.cols = [
       { field: 'name', header: 'Name' },
       { field: 'amount', header: 'Amount' },
@@ -43,6 +43,7 @@ getAllChits(){
 getCalculatedAmount(){
   this.chitsService.getCalculatedAmount().subscribe(res=>{
     this.dueAmount = res;
+
   })
 }
 editChit(rowData:any){

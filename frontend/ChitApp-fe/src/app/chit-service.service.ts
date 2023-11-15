@@ -26,7 +26,7 @@ export class ChitServiceService {
   getCalculatedAmount():Observable<any>{
     let headers = new HttpHeaders({'Content-Type': 'application/json'})
     // headers.append('Access-Control-Allow-Origin', '*')
-    const url = "http://localhost:8080/api/chits/calculate-amount-due"
+    const url = "http://localhost:5001/api/chits/read/calculate-amount-due"
     return this.httpModule.get(url,{headers})
   }
   saveChit(data:any):Observable<any>{
